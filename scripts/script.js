@@ -41,3 +41,40 @@ if (navigationToggle && navigation) {
         });
     });
 }
+
+/**
+ * Envoi du formulaire de contact vers l'API Flask.
+ */
+const contactForm = document.querySelector('#contact-form');
+const contactFeedback = document.querySelector('#contact-feedback');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const nom = document.querySelector('#contact-name').value;
+        const email = document.querySelector('#contact-email').value;
+        const message = document.querySelector('#contact-message').value;
+
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nom, email, message }),
+            });
+
+            const result = await response.json();
+            console.log('Réponse du serveur :', result); // ← ligne ajoutée pour debug
+
+            if (response.ok) {
+                contactFeedback.textContent = result.succes;
+                contactForm.reset();
+            } else {
+                contactFeedback.textContent = result.erreur;
+            }
+        } catch (error) {
+            console.error('Erreur détaillée :', error); // ← ligne ajoutée pour debug
+            contactFeedback.textContent = "Impossible d'envoyer le message. Vérifiez votre connexion.";
+        }
+    });
+}

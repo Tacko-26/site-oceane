@@ -118,7 +118,7 @@
                         un tableau ou une création personnalisée.
                     </p>
 
-                    <a href="#contact-form">
+                    <a href="#contact">
                         Parlons-en →
                     </a>
 
@@ -136,7 +136,7 @@
                         en communication ou en création de contenus.
                     </p>
 
-                    <a href="#contact-form">
+                    <a href="#contact">
                         Demander un devis →
                     </a>
 
@@ -151,7 +151,7 @@
                 FORMULAIRE
         ======================================== -->
 
-        <section class="contact-form-section" id="contact-form">
+        <section class="contact-form-section" id="contact">
 
             <div class="section-heading">
 
@@ -161,23 +161,27 @@
 
             </div>
 
-            <form class="contact-form">
+            <form class="contact-form" id="contact-form">
 
                 <input
                     type="text"
+                    id="contact-name"
                     placeholder="Votre nom"
                     required>
 
                 <input
                     type="email"
+                    id="contact-email"
                     placeholder="Votre adresse e-mail"
                     required>
 
                 <input
                     type="text"
+                    id="contact-subject"
                     placeholder="Sujet">
 
                 <textarea
+                    id="contact-message"
                     rows="7"
                     placeholder="Décrivez votre projet..."
                     required></textarea>
@@ -186,56 +190,70 @@
                     Envoyer le message
                 </button>
 
+                <p id="contact-feedback"></p>
+
             </form>
 
         </section>
 
 
         <!-- ========================================
-                COORDONNÉES
+            COORDONNÉES
         ======================================== -->
 
         <section class="contact-info">
 
             <div class="section-heading">
 
-                <p class="section-label">Coordonnées</p>
+                <p class="section-label">COORDONNÉES</p>
 
                 <h2>Restons en contact.</h2>
 
             </div>
 
+
             <div class="contact-info-grid">
 
                 <article class="info-card">
 
-                    <span>📧</span>
+                    <span aria-hidden="true">☎</span>
+
+                    <h3>Téléphone</h3>
+
+                    <p>
+                        <a href="tel:0953421163">
+                            09 53 42 11 63
+                        </a>
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <span aria-hidden="true">⌂</span>
+
+                    <h3>Adresse</h3>
+
+                    <p>
+                        28 rue de l'Église<br>
+                        95170 Deuil-la-Barre
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <span aria-hidden="true">✉</span>
 
                     <h3>Email</h3>
 
-                    <p>contact@oceane.fr</p>
-
-                </article>
-
-
-                <article class="info-card">
-
-                    <span>📷</span>
-
-                    <h3>Instagram</h3>
-
-                    <p>@oceane.art</p>
-
-                </article>
-
-
-                <article class="info-card">
-
-                    <span>📌</span>
-
-                    <h3>Pinterest</h3>
-
-                    <p>Océane Créations</p>
+                    <p>
+                        <a href="mailto:jeanlouisezeliso@gmail.com">
+                            jeanlouisezeliso@gmail.com
+                        </a>
+                    </p>
 
                 </article>
 
