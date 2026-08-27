@@ -157,6 +157,14 @@ button:focus-visible {
     letter-spacing: 3px;
 }
 
+.contact .section-label,
+.about-cta .section-label,
+.creations-cta .section-label,
+.services-cta .section-label,
+.blog-cta .section-label {
+    color: var(--dark);
+}
+
 .hero h1 {
     margin-bottom: 28px;
 
@@ -311,37 +319,16 @@ button:focus-visible {
 
 /* ---------- IMAGE ---------- */
 
-.universe-card__image,
-.universe-card__placeholder {
+.universe-card__image {
     position: absolute;
     inset: 0;
 
     width: 100%;
     height: 100%;
-}
 
-.universe-card__image {
     object-fit: cover;
 
     transition: transform 0.6s ease;
-}
-
-
-/* ---------- CARTE ENTREPRISE ---------- */
-
-.universe-card__placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: var(--dark);
-
-    color: var(--accent);
-    font-size: 6rem;
-}
-
-.universe-card__placeholder span {
-    opacity: 0.8;
 }
 
 
@@ -480,42 +467,6 @@ button:focus-visible {
     content: '✦';
 }
 
-/* =========================
-   COUP DE CŒUR
-========================= */
-
-.creations-featured {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.creations-featured__visual {
-    min-height: 500px;
-    overflow: hidden;
-
-    border: 2px solid var(--text);
-    background-color: var(--surface);
-    box-shadow: 12px 12px 0 var(--text);
-}
-
-.creations-featured__visual img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-    min-height: 500px;
-
-    object-fit: cover;
-
-    transition: transform 0.5s ease;
-}
-
-.creations-featured__visual:hover img {
-    transform: scale(1.03);
-}
-
 
 /* =========================
    SERVICES
@@ -534,8 +485,6 @@ button:focus-visible {
 }
 
 .section-heading h2,
-.about h2,
-.blog h2,
 .contact h2 {
     font-size: clamp(2.5rem, 5vw, 5rem);
     line-height: 1;
@@ -604,26 +553,6 @@ button:focus-visible {
 
 
 /* =========================
-   ABOUT
-========================= */
-
-.about {
-    padding: 140px 8%;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-
-    background-color: var(--surface);
-}
-
-.about p:last-child {
-    max-width: 500px;
-
-    color: var(--muted-text);
-}
-
-/* =========================
    PAGE À PROPOS
 ========================= */
 
@@ -657,14 +586,6 @@ button:focus-visible {
 
     color: var(--muted-text);
     font-size: 1.1rem;
-}
-
-.about-hero__image {
-    min-height: 520px;
-
-    background-color: var(--surface);
-    border: 2px solid var(--text);
-    box-shadow: 14px 14px 0 var(--text);
 }
 
 .section-heading > p.section-label {
@@ -703,40 +624,6 @@ button:focus-visible {
     padding: 140px 8%;
 
     background-color: var(--surface);
-}
-
-.journey-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.journey-card {
-    min-height: 260px;
-
-    padding: 35px;
-
-    border: 1px solid var(--border);
-    background-color: var(--background);
-
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.journey-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-8px);
-}
-
-.journey-card h3 {
-    margin-bottom: 20px;
-
-    font-size: 1.8rem;
-}
-
-.journey-card p {
-    max-width: 450px;
-
-    color: var(--muted-text);
 }
 
 .journey-grid {
@@ -859,10 +746,6 @@ button:focus-visible {
 
 /* ---------- DEUX UNIVERS ---------- */
 
-.about-universes {
-    padding: 140px 8%;
-}
-
 .about-journey .section-heading,
 .about-universes .section-heading,
 .about-method .section-heading {
@@ -877,7 +760,7 @@ button:focus-visible {
    MON UNIVERS
 ========================= */
 
-.about-universe {
+.about-universes {
     padding: 120px 8%;
 }
 
@@ -902,8 +785,10 @@ button:focus-visible {
 }
 
 .about-universe-card img {
-    display: block;
+    position: absolute;
+    inset: 0;
 
+    display: block;
     width: 100%;
     height: 100%;
 
@@ -1084,11 +969,13 @@ button:focus-visible {
     margin-bottom: 30px;
 
     font-size: clamp(3rem, 5vw, 5.5rem);
-    line-height: .95;
+    line-height: 0.95;
     letter-spacing: -3px;
 }
 
-.creations-hero__content p:last-child {
+.creations-hero__content > p:last-child {
+    max-width: 500px;
+
     color: var(--muted-text);
     font-size: 1.1rem;
 }
@@ -1108,44 +995,6 @@ button:focus-visible {
     min-height: 520px;
 
     object-fit: cover;
-}
-
-.creations-hero {
-    min-height: calc(100vh - 90px);
-
-    padding: 80px 8%;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 80px;
-}
-
-.creations-hero__content {
-    max-width: 600px;
-}
-
-.creations-hero__content h1 {
-    margin-bottom: 30px;
-
-    font-size: clamp(3rem, 5vw, 5.5rem);
-    line-height: 0.95;
-    letter-spacing: -3px;
-}
-
-.creations-hero__content > p:last-child {
-    max-width: 500px;
-
-    color: var(--muted-text);
-    font-size: 1.1rem;
-}
-
-.creations-hero__visual {
-    min-height: 520px;
-
-    background-color: var(--surface);
-    border: 2px solid var(--text);
-    box-shadow: 14px 14px 0 var(--text);
 }
 
 /* =========================
@@ -1302,9 +1151,27 @@ button:focus-visible {
 .creations-featured__visual {
     min-height: 500px;
 
+    overflow: hidden;
+
     background-color: var(--background);
     border: 2px solid var(--text);
     box-shadow: 14px 14px 0 var(--text);
+}
+
+.creations-featured__visual img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.creations-featured__visual:hover img {
+    transform: scale(1.03);
 }
 
 
@@ -1347,8 +1214,6 @@ button:focus-visible {
 /* =========================
    PAGE SERVICES
 ========================= */
-
-/* ---------- HERO ---------- */
 
 .services-page .section-heading {
     display: block;
@@ -1840,22 +1705,6 @@ button:focus-visible {
 
 
 /* =========================
-   BLOG
-========================= */
-
-.blog {
-    padding: 140px 8%;
-
-    text-align: center;
-}
-
-.blog p:last-child {
-    margin-top: 25px;
-
-    color: var(--muted-text);
-}
-
-/* =========================
    PAGE BLOG
 ========================= */
 
@@ -1900,71 +1749,6 @@ button:focus-visible {
 }
 
 
-/* ---------- ARTICLES À LA UNE ---------- */
-
-.featured-posts {
-    padding: 140px 8%;
-
-    background-color: var(--surface);
-}
-
-.featured-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.featured-card {
-    display: flex;
-    flex-direction: column;
-
-    padding: 25px;
-
-    background: var(--background);
-    border: 1px solid var(--border);
-
-    transition: transform .3s ease,
-        border-color .3s ease;
-}
-
-.featured-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent);
-}
-
-.featured-card__image {
-    height: 220px;
-
-    margin-bottom: 20px;
-
-    background: var(--surface);
-}
-
-.featured-card span {
-    margin-bottom: 10px;
-
-    color: var(--accent);
-    font-size: .85rem;
-    font-weight: bold;
-}
-
-.featured-card h3 {
-    margin-bottom: 15px;
-
-    font-size: 1.5rem;
-}
-
-.featured-card p {
-    color: var(--muted-text);
-}
-
-.featured-card a {
-    margin-top: auto;
-
-    font-weight: bold;
-}
-
-
 /* ---------- CATÉGORIES ---------- */
 
 .blog-categories {
@@ -1997,7 +1781,7 @@ button:focus-visible {
 }
 
 
-/* ---------- TOUS LES ARTICLES ---------- */
+/* ---------- BIENTÔT DISPONIBLE ---------- */
 
 .all-posts {
     padding: 140px 8%;
@@ -2005,42 +1789,12 @@ button:focus-visible {
     background: var(--surface);
 }
 
-.posts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+.all-posts .section-heading {
+    display: block;
 }
 
-.post-card {
-    padding: 25px;
-
-    background: var(--background);
-    border: 1px solid var(--border);
-
-    transition: .3s;
-}
-
-.post-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent);
-}
-
-.post-card__image {
-    height: 220px;
-
-    margin-bottom: 20px;
-
-    background: var(--surface);
-}
-
-.post-card h3 {
-    margin-bottom: 20px;
-
-    font-size: 1.4rem;
-}
-
-.post-card a {
-    font-weight: bold;
+.all-posts .section-heading h2 {
+    max-width: 700px;
 }
 
 
@@ -2100,14 +1854,12 @@ button:focus-visible {
 }
 
 /* =========================
-   CONTACT
+   PAGE CONTACT
 ========================= */
 
 .contact {
     padding: 150px 8%;
-
     text-align: center;
-
     background-color: var(--accent);
 }
 
@@ -2116,10 +1868,6 @@ button:focus-visible {
 
     margin: 0 auto 45px;
 }
-
-/* =========================
-   PAGE CONTACT
-========================= */
 
 .contact-hero {
     display: grid;
@@ -2506,10 +2254,6 @@ button:focus-visible {
         grid-template-columns: 1fr;
     }
 
-    .about {
-        grid-template-columns: 1fr;
-    }
-
     .about-hero {
         grid-template-columns: 1fr;
     }
@@ -2536,30 +2280,12 @@ button:focus-visible {
         grid-template-columns: 1fr;
     }
 
-    .collection-cards,
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
     .blog-hero {
-        grid-template-columns: 1fr;
-    }
-
-    .featured-grid,
-    .posts-grid {
         grid-template-columns: 1fr;
     }
 
     .categories-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .creations-hero {
-        grid-template-columns: 1fr;
-    }
-
-    .creations-featured {
-        grid-template-columns: 1fr;
     }
 
 }
@@ -2576,10 +2302,8 @@ button:focus-visible {
 
     .hero,
     .services,
-    .about,
     .creations,
     .intro,
-    .blog,
     .contact {
         padding-left: 5%;
         padding-right: 5%;
@@ -2592,18 +2316,10 @@ button:focus-visible {
     .hero,
     .intro,
     .services,
-    .about,
     .creations,
-    .blog,
     .contact {
         padding-top: 80px;
         padding-bottom: 80px;
-    }
-
-    .hero-visual {
-        min-height: 480px;
-        padding: 24px;
-        box-shadow: 8px 8px 0 var(--text);
     }
 
     .universe-choices {
@@ -2648,11 +2364,6 @@ button:focus-visible {
         box-shadow: 8px 8px 0 var(--text);
     }
 
-    .journey-cards,
-    .universe-cards {
-        grid-template-columns: 1fr;
-    }
-
     .method-list {
         grid-template-columns: 1fr;
     }
@@ -2662,7 +2373,6 @@ button:focus-visible {
     }
 
     .creations-hero,
-    .creations-collections,
     .creations-gallery,
     .creations-featured,
     .creations-cta {
@@ -2671,29 +2381,11 @@ button:focus-visible {
     }
 
     .creations-hero,
-    .creations-collections,
     .creations-gallery,
     .creations-featured,
     .creations-cta {
         padding-top: 80px;
         padding-bottom: 80px;
-    }
-
-    .creations-hero__visual {
-        min-height: 380px;
-
-        box-shadow: 8px 8px 0 var(--text);
-    }
-
-    .collection-cards,
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .creations-featured__visual {
-        min-height: 380px;
-
-        box-shadow: 8px 8px 0 var(--text);
     }
 
     .creations-featured__actions {
@@ -2703,7 +2395,6 @@ button:focus-visible {
 
     .services-hero,
     .services-offers,
-    .services-approach,
     .services-values,
     .services-process,
     .services-cta {
@@ -2733,7 +2424,6 @@ button:focus-visible {
     }
 
     .blog-hero,
-    .featured-posts,
     .blog-categories,
     .all-posts,
     .blog-cta {
@@ -2742,7 +2432,6 @@ button:focus-visible {
     }
 
     .blog-hero,
-    .featured-posts,
     .blog-categories,
     .all-posts,
     .blog-cta {
@@ -2764,10 +2453,6 @@ button:focus-visible {
         grid-template-columns: 1fr;
     }
 
-    .intro .universe-card {
-        min-height: 250px;
-    }
-    
     .creations-hero {
         padding: 80px 5%;
     }
