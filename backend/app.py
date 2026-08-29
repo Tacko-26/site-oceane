@@ -5,7 +5,7 @@ from datetime import datetime
 from functools import wraps
 
 app = Flask(__name__)
-CORS(app)  # autorise ton site (autre origine) à appeler cette API
+CORS(app)  # autorise le site (autre origine) à appeler cette API
 
 DB_NAME = "database.db"
 
@@ -66,17 +66,6 @@ def recevoir_message():
     conn.close()
 
     return jsonify({"succes": "Message bien reçu !"}), 201
-
-@app.route("/api/messages", methods=["GET"])
-def lister_messages():
-    """Route simple pour vérifier que ça marche (à protéger plus tard)."""
-    conn = sqlite3.connect(DB_NAME)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM messages ORDER BY date_envoi DESC")
-    messages = [dict(row) for row in cursor.fetchall()]
-    conn.close()
-    return jsonify(messages)
 
 @app.route("/admin")
 @requires_auth

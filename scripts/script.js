@@ -64,7 +64,6 @@ if (contactForm) {
             });
 
             const result = await response.json();
-            console.log('Réponse du serveur :', result); // ← ligne ajoutée pour debug
 
             if (response.ok) {
                 contactFeedback.textContent = result.succes;
@@ -73,7 +72,6 @@ if (contactForm) {
                 contactFeedback.textContent = result.erreur;
             }
         } catch (error) {
-            console.error('Erreur détaillée :', error); // ← ligne ajoutée pour debug
             contactFeedback.textContent = "Impossible d'envoyer le message. Vérifiez votre connexion.";
         }
     });
