@@ -1,13 +1,23 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
+import os
 from datetime import datetime
 from functools import wraps
 
 app = Flask(__name__)
-CORS(app)  # autorise le site (autre origine) à appeler cette API
 
-DB_NAME = "database.db"
+# CORS : autorise ton vrai site en prod, garde localhost pour tes tests en local
+CORS(app, origins=[
+    "https://tacko-26.github.io",
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+])
+
+DB_NAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "database.db")
+
+ADMIN_USER = os.environ.get("ADMIN_USER", "oceane")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "change-moi-en-local")
 
 def init_db():
     """Crée la table messages si elle n'existe pas déjà."""
@@ -112,4 +122,5 @@ def admin_messages():
 
 if __name__ == "__main__":
     init_db()
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
