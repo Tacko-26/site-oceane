@@ -35,7 +35,7 @@ Le serveur démarre sur `http://127.0.0.1:5000`. La base de données (`database.
 
 Par défaut, sans configuration, les identifiants admin sont :
 - Identifiant : `oceane`
-- Mot de passe : `change-moi-en-local`
+- Mot de passe : `0000`
 
 Pour définir tes propres identifiants en local (recommandé) :
 
