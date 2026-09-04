@@ -4,6 +4,7 @@ import sqlite3
 import os
 from datetime import datetime
 from functools import wraps
+from werkzeug.security import check_password_hash
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ CORS(app, origins=[
 DB_NAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "database.db")
 
 ADMIN_USER = os.environ.get("ADMIN_USER", "oceane")
-ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "change-moi-en-local")
+ADMIN_PASSWORD_HASH = os.environ.get("ADMIN_PASSWORD_HASH", "")
 
 def init_db():
     """Crée la table messages si elle n'existe pas déjà."""
@@ -43,7 +44,7 @@ def requires_auth(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         auth = request.authorization
-        if not auth or auth.username != ADMIN_USER or auth.password != ADMIN_PASSWORD:
+        if not auth or auth.username != ADMIN_USER or not check_password_hash(ADMIN_PASSWORD_HASH, auth.password):
             return (
                 "Accès refusé", 401,
                 {"WWW-Authenticate": 'Basic realm="Zone admin"'}
